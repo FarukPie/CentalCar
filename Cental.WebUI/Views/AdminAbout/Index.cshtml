@@ -1,4 +1,4 @@
-﻿@model list<About>
+﻿@model List<About>
 @{
     ViewData["Title"] = "Index";
 }
@@ -26,5 +26,5 @@
     }
 
 </table>
-<a href="#" class="btn btn-primary">Yeni Hakkımızda Ekle </a>
+<a asp-action="CreateAbout" asp-controller="AdminAbout" class="btn btn-primary">Yeni Hakkımızda Ekle </a>
 
