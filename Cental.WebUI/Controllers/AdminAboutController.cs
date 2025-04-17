@@ -50,5 +50,45 @@ namespace Cental.WebUI.Controllers
             });
             return RedirectToAction("Index");
         }
+
+
+        public IActionResult DeleteAbout(int id) { 
+
+        _aboutService.TDelete(id);
+        return RedirectToAction("Index");
+        }
+
+        public IActionResult UpdateAbout(int id)
+        {
+            var value = _aboutService.TGetById(id);
+            return View(value);
+        }
+        [HttpPost]
+        public IActionResult UpdateAbout(UpdateAboutDto model)
+        {
+            var about = new About
+            {   
+                AboutId = model.AboutId,
+                Description1 = model.Description1,
+                Description2 = model.Description2,
+                ImageUrl1 = model.ImageUrl1,
+                ImageUrl2 = model.ImageUrl2,
+                item1 = model.item1,
+                item2 = model.item2,
+                item3 = model.item3,
+                item4 = model.item3,
+                JobTitle = model.JobTitle,
+                Mission = model.Mission,
+                NameSurname = model.NameSurname,
+                ProfilePicUrl = model.ProfilePicUrl,
+                StartYear = (int)model.StartYear,
+                Vision = model.Vision
+
+            };
+            _aboutService.TUpdate(about);
+            return RedirectToAction("Index");
+
+        }
+
     }
 }

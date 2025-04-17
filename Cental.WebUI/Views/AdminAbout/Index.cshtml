@@ -19,8 +19,8 @@
             <td>@item.AboutId</td>
             <td>@item.Vision</td>
             <td>@item.Mission</td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-info">Güncelle</a></td>
+            <td><a asp-action="DeleteAbout" asp-route-id="@item.AboutId" class="btn btn-danger">Sil</a></td>
+            <td><a href="" class="btn btn-info">Güncelle</a></td>
 
         </tr>
     }
