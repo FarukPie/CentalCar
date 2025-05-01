@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Cental.DataAccesLayer.Concreate
 {
-    public class EfAboutDal : GenericRepostory<About>, IAboutDal
-    {
-        public EfAboutDal(CentalContext context) : base(context)
-        {
-        }
-    }
+	public class EfAboutDal : GenericRepostory<About>, IAboutDal
+	{
+		public EfAboutDal(CentalContext context) : base(context)
+		{
+		}
+	}
 }
