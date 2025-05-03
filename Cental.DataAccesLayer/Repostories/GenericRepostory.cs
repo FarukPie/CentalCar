@@ -10,7 +10,7 @@ namespace Cental.DataAccesLayer.Repostories
 {
     public class GenericRepostory<T> : IGenericDal<T> where T : class 
     {
-        private readonly CentalContext _context;
+        protected readonly CentalContext _context;  
 
         public GenericRepostory(CentalContext context)
         {
