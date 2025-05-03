@@ -15,11 +15,15 @@ namespace Cental.WebUI.Controllers
         }
 
         public IActionResult Index()
-
         {
-
             var values = _aboutService.TGetAll();
-            return View(values);
+            var result =values.Select(about => new ResultAboutDto
+            {
+                AboutId=about.AboutId,
+                Mission=about.Mission,
+                Vision=about.Vision,
+            }).ToList();
+            return View(result);
         }
 
         [HttpGet]
@@ -57,11 +61,33 @@ namespace Cental.WebUI.Controllers
         _aboutService.TDelete(id);
         return RedirectToAction("Index");
         }
-
+        [HttpGet]
         public IActionResult UpdateAbout(int id)
         {
-            var value = _aboutService.TGetById(id);
-            return View(value);
+            var model = _aboutService.TGetById(id);
+            var about = new UpdateAboutDto
+            {
+                AboutId = model.AboutId,
+                Description1 = model.Description1,
+                Description2 = model.Description2,
+                ImageUrl1 = model.ImageUrl1,
+                ImageUrl2 = model.ImageUrl2,
+                item1 = model.item1,
+                item2 = model.item2,
+                item3 = model.item3,
+                item4 = model.item3,
+                JobTitle = model.JobTitle,
+                Mission = model.Mission,
+                NameSurname = model.NameSurname,
+                ProfilePicUrl = model.ProfilePicUrl,
+                StartYear = (int)model.StartYear,
+                Vision = model.Vision
+
+            };
+
+
+
+            return View(about);
         }
         [HttpPost]
         public IActionResult UpdateAbout(UpdateAboutDto model)

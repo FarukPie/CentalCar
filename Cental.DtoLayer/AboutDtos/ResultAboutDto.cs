@@ -8,6 +8,9 @@ namespace Cental.DtoLayer.AboutDtos
 {
 	public class ResultAboutDto
 	{
-
-	}
+        public int AboutId { get; set; }
+        public string Vision { get; set; }
+        public string Mission { get; set; }
+     
+    }
 }
