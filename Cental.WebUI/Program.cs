@@ -4,13 +4,18 @@ using Cental.DataAccesLayer.Abstract;
 using Cental.DataAccesLayer.Concreate;
 using Cental.DataAccesLayer.Context;
 using Cental.DataAccesLayer.Repostories;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// about service  gordugun zaman aboutmanager sınıfından bır nesne ornegı al ve ıslemı onunla yap
+// about service  gordugun zaman aboutmanager sınıfından bır nesne ornegı al ve ıslemı onunla yap   
+
+
 
 builder.Services.AddDbContext<CentalContext>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
 builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
 
