@@ -9,10 +9,38 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concreate
 {
-    public class CarManager : GenericManager<Car>, ICarService
-    {
-        public CarManager(IGenericDal<Car> genericDal) : base(genericDal)
-        {
-        }
-    }
+	public class CarManager : ICarService
+	{
+		private readonly ICarDal _carDal;
+
+		public CarManager(ICarDal carDal)
+		{
+			_carDal = carDal;
+		}
+
+		public void TCreate(Car entitiy)
+		{
+			_carDal.Create(entitiy);
+		}
+
+		public void TDelete(int id)
+		{
+			_carDal.Delete(id);
+		}
+
+		public List<Car> TGetAll()
+		{
+			return _carDal.GetAll();
+		}
+
+		public Car TGetById(int id)
+		{
+			return _carDal.GetById(id);
+		}
+
+		public void TUpdate(Car entitiy)
+		{
+			_carDal.Update(entitiy);
+		}
+	}
 }

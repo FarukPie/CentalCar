@@ -8,10 +8,39 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concreate
 {
-    public class ServiceManager : GenericManager<Service>
-    {
-        public ServiceManager(IGenericDal<Service> genericDal) : base(genericDal)
-        {
-        }
-    }
+	public class ServiceManager : IServiceDal
+	{
+		private readonly IServiceDal _serviceDal;
+
+		public ServiceManager(IServiceDal serviceDal)
+		{
+			_serviceDal = serviceDal;
+		}
+
+		public void Create(Service entitiy)
+		{
+			_serviceDal.Create(entitiy);
+			
+		}
+
+		public void Delete(int id)
+		{
+			_serviceDal.Delete(id);
+		}
+
+		public List<Service> GetAll()
+		{
+			return _serviceDal.GetAll();
+		}
+
+		public Service GetById(int id)
+		{
+			return _serviceDal.GetById(id);
+		}
+
+		public void Update(Service entitiy)
+		{
+			_serviceDal.Update(entitiy);
+		}
+	}
 }

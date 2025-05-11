@@ -9,5 +9,6 @@ namespace Cental.BusinessLayer.Abstract
 {
     public interface IFeaturesService: IGenericService<Feature>
     {
+
     }
 }
