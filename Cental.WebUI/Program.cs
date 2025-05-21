@@ -14,19 +14,37 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<CentalContext>();
+
+
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
+builder.Services.AddScoped<IAboutService, AboutManager>();
 
-builder.Services.AddScoped<IBannerService,BannerManager>();
 builder.Services.AddScoped<IBannerDal, EfBannerDal>();
+builder.Services.AddScoped<IBannerService,BannerManager>();
 
-builder.Services.AddScoped<IBrandService,BrandManager>();
 builder.Services.AddScoped<IBrandDal, EfBrandDal>();
+builder.Services.AddScoped<IBrandService,BrandManager>();
 
-builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepostory<>));
-builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
+builder.Services.AddScoped<ICarDal, EfCarDal>();
+builder.Services.AddScoped<ICarService,CarManager>();
+
+builder.Services.AddScoped<IFeatureDal, EfFeaturesDal>();
+builder.Services.AddScoped<IFeaturesService, FeatureManager>();
+
+builder.Services.AddScoped<IProcessDal, EfProcessDal>();
+builder.Services.AddScoped<IProcessService, ProcessManager>();
+
+builder.Services.AddScoped<IReviewDal, EfReviewDal>();
+builder.Services.AddScoped<IReviewService, ReviewManager>();
+
+builder.Services.AddScoped<ITestimonialsDal, EfTestimonialDal>();
+builder.Services.AddScoped<ITestimonialService, TestimaonialManager>();
+
+
+
+
 
 
 
