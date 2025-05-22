@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.AboutDtos;
+using Cental.DtoLayer.FeatureDtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.ViewComponents.DefaultLayout
