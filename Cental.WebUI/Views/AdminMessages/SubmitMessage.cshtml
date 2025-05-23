@@ -1,0 +1,47 @@
+﻿@model List<Message>  
+@{  
+  ViewData["Title"] = "Gelen Kutusu";  
+  Layout = "~/Views/AdminLayout/Layout.cshtml";  
+}  
+@* @if (Model != null && Model.Any())  
+{  
+  foreach (var item in Model)  
+  {  
+      <p>@item.CarType</p>  
+  }  
+}  
+else  
+{  
+  <p>Mesaj bulunamadı.</p>  
+}
+      
+ *@
+ <table class="table table-bordered table-active">
+
+     <thead>
+         <tr>
+             <th>Araba Modeli</th>
+             <th>Nereden</th>
+             <th>Nereye</th>
+             <th>Teslim Etme Tarihi</th>
+             <th>Istenilen Teslim Alma Tarihi</th>
+         </tr>
+     </thead>
+
+
+
+
+ <tbody>
+@foreach(var item in Model)
+{
+    <tr>
+        <td>@item.CarType</td>
+        <td>@item.PickUp</td>
+        <td>@item.DropOff</td>
+        <td>@item.PickTime</td>
+        <td>@item.DropTime</td>
+    </tr>
+
+}
+</tbody>
+</table>
